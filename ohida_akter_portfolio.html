@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ohida Akter – Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --accent: #2d7a5f;
+        --accent-mid: #3a9b78;
+        --accent-light: #e8f5ef;
+        --accent-lighter: #f2faf6;
+        --text-dark: #1a2e25;
+        --text-mid: #3d5a4a;
+        --text-light: #7a9e8a;
+        --bg: #f4faf7;
+        --white: #ffffff;
+        --border: #c8e6d8;
+        --radius: 14px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+       font-family: 'Crimson Pro', serif;
+        background: var(--bg);
+        color: var(--text-dark);
+        line-height: 1.7;
+        font-size: 20px;
+      }
+
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(244, 250, 247, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 6vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 6px;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-mid);
+        padding: 6px 18px;
+        border-radius: 100px;
+        border: 1px solid var(--border);
+        background: var(--white);
+        transition: all 0.2s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+
+      /* SECTION BASE */
+      section {
+        padding: 72px 6vw;
+      }
+      section + section {
+        border-top: 1px solid var(--border);
+      }
+      .section-heading {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .section-heading h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        color: var(--text-dark);
+      }
+      .section-heading p {
+        font-size: 14px;
+        color: var(--text-light);
+        margin-top: 6px;
+      }
+      .sub-heading {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        color: var(--text-dark);
+        margin-bottom: 24px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--accent-light);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .sub-heading span {
+        width: 6px;
+        height: 24px;
+        background: var(--accent-mid);
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      /* ABOUT */
+      #about {
+        padding-top: 80px;
+        background: var(--white);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .about-name {
+        font-family: "Playfair Display", serif;
+        font-size: 46px;
+        line-height: 1.1;
+        margin-bottom: 18px;
+      }
+      .about-name span {
+        color: var(--accent);
+      }
+      .about-bio {
+        font-size: 15px;
+        color: var(--text-mid);
+        margin-bottom: 28px;
+        line-height: 1.85;
+      }
+      .research-label {
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: var(--text-light);
+        margin-bottom: 12px;
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--accent);
+        background: var(--accent-light);
+        border-radius: 100px;
+        padding: 5px 14px;
+        border: 1px solid #b2dcc8;
+      }
+      .welcome-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .welcome-box {
+        width: 320px;
+        height: 300px;
+        border-radius: 20px;
+        border: 2px dashed #b2dcc8;
+        background: var(--accent-lighter);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+      }
+      .welcome-box svg {
+        width: 48px;
+        height: 48px;
+        stroke: var(--accent-mid);
+        fill: none;
+        stroke-width: 1.5;
+      }
+      .welcome-box span {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-mid);
+      }
+      .welcome-box small {
+        font-size: 12px;
+        color: var(--text-light);
+      }
+
+      /* SKILLS */
+      #skills {
+        background: var(--bg);
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .skill-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+      }
+      .skill-cat {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .skill-cat .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent-mid);
+      }
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .badge {
+        font-size: 12px;
+        font-weight: 500;
+        padding: 4px 12px;
+        border-radius: 100px;
+        background: var(--bg);
+        color: var(--text-mid);
+        border: 1px solid var(--border);
+      }
+
+      /* EDUCATION */
+      #education {
+        background: var(--white);
+      }
+      .edu-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+      }
+      .edu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .edu-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+      .edu-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--accent-mid);
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+      .edu-icon {
+        width: 42px;
+        height: 42px;
+        background: var(--accent-light);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 4px;
+      }
+      .edu-icon svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--accent);
+        fill: none;
+        stroke-width: 2;
+      }
+      .edu-level {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--accent-mid);
+      }
+      .edu-degree {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-dark);
+        line-height: 1.4;
+      }
+      .edu-school {
+        font-size: 13px;
+        color: var(--text-mid);
+      }
+      .edu-year {
+        font-size: 12px;
+        color: var(--text-light);
+      }
+      .edu-result {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--accent);
+        margin-top: 4px;
+      }
+
+      /* IELTS */
+      .ielts-overall {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        margin-bottom: 20px;
+      }
+      .ielts-band-big {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .ielts-band-big .score {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .ielts-band-big .label {
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+      .ielts-info h3 {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 4px;
+      }
+      .ielts-info p {
+        font-size: 14px;
+        color: var(--text-mid);
+      }
+      .ielts-scores {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .ielts-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px;
+        text-align: center;
+      }
+      .ielts-card .s-score {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .ielts-card .s-label {
+        font-size: 12px;
+        color: var(--text-light);
+        margin-top: 4px;
+      }
+
+      /* CORE COURSES */
+      .courses-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 32px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      .course-row {
+        display: flex;
+        align-items: center;
+        padding: 13px 24px;
+        border-bottom: 1px solid var(--border);
+        transition: background 0.15s;
+      }
+      .course-row:hover {
+        background: var(--accent-lighter);
+      }
+      .course-row:nth-last-child(-n + 2) {
+        border-bottom: none;
+      }
+      .course-num {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-light);
+        min-width: 28px;
+      }
+      .course-dot-line {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+      .course-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-mid);
+        white-space: nowrap;
+        padding-right: 6px;
+      }
+      .dots {
+        flex: 1;
+        border-bottom: 2px dotted var(--border);
+        margin: 0 6px;
+        min-width: 12px;
+      }
+      .grade-badge {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--accent);
+        background: var(--accent-light);
+        border: 1px solid #b2dcc8;
+        border-radius: 100px;
+        padding: 3px 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* PROJECTS */
+      #projects {
+        background: var(--bg);
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .proj-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .proj-card:hover {
+        border-color: var(--accent-mid);
+        transform: translateY(-3px);
+      }
+      .proj-tag {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-light);
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 100px;
+        width: fit-content;
+        border: 1px solid #b2dcc8;
+      }
+      .proj-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+      .proj-desc {
+        font-size: 13px;
+        color: var(--text-mid);
+        line-height: 1.6;
+        flex: 1;
+      }
+      .proj-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--accent);
+        text-decoration: none;
+        margin-top: 4px;
+        transition: gap 0.2s;
+      }
+      .proj-link:hover {
+        gap: 10px;
+      }
+      .proj-link svg {
+        width: 14px;
+        height: 14px;
+        stroke: var(--accent);
+        fill: none;
+        stroke-width: 2;
+      }
+
+      /* CONTACT */
+      #contact {
+        background: var(--white);
+        text-align: center;
+      }
+      .contact-inner {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      .contact-inner p {
+        font-size: 15px;
+        color: var(--text-mid);
+        margin-bottom: 32px;
+        line-height: 1.8;
+      }
+      .contact-btns {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .c-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+        border: 2px solid transparent;
+      }
+      .c-btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .c-btn-primary:hover {
+        background: var(--accent-mid);
+        transform: translateY(-2px);
+      }
+      .c-btn-outline {
+        background: var(--white);
+        color: var(--text-dark);
+        border-color: var(--border);
+      }
+      .c-btn-outline:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .c-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+
+      footer {
+        text-align: center;
+        padding: 24px;
+        font-size: 13px;
+        color: var(--text-light);
+        border-top: 1px solid var(--border);
+        background: var(--white);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ══ NAV ══ -->
+    <nav>
+      <div class="nav-logo">OA</div>
+      <div class="nav-links">
+        <a href="#about" class="active">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- ══ ABOUT ══
+     UPDATE: name, bio, research interest tags
+     To swap welcome image replace .welcome-box div with:
+     <img src="your-image.jpg" style="width:320px;height:300px;object-fit:cover;border-radius:20px;">
+-->
+    <section id="about">
+      <div class="about-grid">
+        <div>
+          <h1 class="about-name">Ohida <span>Akter</span></h1>
+          <br />
+          <!-- UPDATE: your name -->
+          <p class="about-bio">
+            My research is driven by a passion for Artificial Intelligence and
+            its potential to solve complex real-world problems. I am
+            particularly focused on the intersection of Security and Healthcare,
+            aiming to build systems that are not only intelligent but also
+            robust and beneficial to human well-being. Beyond my core research,
+            I am deeply committed to the Education sector, where I hope to
+            contribute by making advanced technology more accessible and
+            understandable for the next generation of learners.
+            <br><br>
+            During my downtime, I love building websites and mobile apps. I
+            enjoy the challenge of creating designs that are easy for people to
+            use. My real strength is my curiosity—if I find something difficult,
+            I start to learn those difficult topics to know why they are
+            difficult to me. I also love to learn new languages, whether it’s
+            the logic of a programming language like Forth or the melody of
+            Spanish.
+          </p>
+
+
+          <!-- UPDATE: your bio -->
+          <p class="research-label">Research Interests</p>
+          <div class="tag-row">
+            <!-- UPDATE: add/remove/rename tags -->
+            <span class="tag">Artificial Intelligence</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Security</span>
+            <span class="tag">Internet of Things</span>
+          </div>
+        </div>
+
+
+        <div class="welcome-wrap">
+          <!-- UPDATE: replace this block with your image when ready -->
+          <div class="welcome-box">
+            <svg
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+            <img
+              src="w1.jpg"
+              alt="Welcome Image"
+              style="
+                width: 320px;
+                height: 380px;
+                object-fit: cover;
+                border-radius: 20px;
+                border: 1px solid #c8e6d8;
+                display: block;
+                margin-left: auto;
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SKILLS ══
+     UPDATE: add/remove .badge items in each card
+-->
+    <section id="skills">
+      <div class="section-heading">
+        <h2>Skills</h2>
+        <p>Technologies I work with</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-cat"><span class="dot"></span>Languages</div>
+          <div class="badges">
+            <span class="badge">Python</span>
+            <span class="badge">C</span>
+            <span class="badge">C++</span>
+            <span class="badge">Java</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">PHP</span>
+            <span class="badge">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-cat"><span class="dot"></span>AI &amp; Data</div>
+          <div class="badges">
+            <span class="badge">PyTorch</span>
+            <span class="badge">TensorFlow</span>
+            <span class="badge">Scikit-learn</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">NumPy</span>
+            <span class="badge">MATLAB</span>
+            <span class="badge">Matplotlib</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-cat">
+            <span class="dot"></span>DevOps &amp; Tools
+          </div>
+          <div class="badges">
+            <span class="badge">Docker</span>
+            <span class="badge">Git</span>
+            <span class="badge">GitHub</span>
+            <span class="badge">GitHub</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">Jupyter</span>
+            <span class="badge">Android Studio</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ EDUCATION ══ -->
+    <section id="education">
+      <div class="section-heading">
+        <h2>Education</h2>
+        <p>My academic background, qualifications &amp; coursework</p>
+      </div>
+      <div class="edu-inner">
+        <!-- Degree Boxes — UPDATE: years and GPA for each -->
+        <div>
+          <div class="sub-heading"><span></span>Degrees</div>
+          <div class="edu-grid">
+            <div class="edu-card">
+              <div class="edu-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3L2 9l10 6 10-6-10-6z" />
+                  <path d="M2 9v6l10 6 10-6V9" />
+                </svg>
+              </div>
+              <div class="edu-level">Bachelor's Degree</div>
+              <div class="edu-degree">
+                B.Sc. in Computer Science &amp; Engineering
+              </div>
+              <div class="edu-school">
+                Bangladesh University of Business and Technology (BUBT), Dhaka
+              </div>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 3h20v5H2zM2 10h20v5H2zM2 17h20v5H2z" />
+                </svg>
+              </div>
+              <div class="edu-level">Higher Secondary (HSC)</div>
+              <div class="edu-degree">
+                Higher Secondary Certificate in Science
+              </div>
+              <div class="edu-school">Amrita Lal Dey College, Barisal</div>
+            </div>
+
+            <div class="edu-card">
+              <div class="edu-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M8 12h8M12 8v8" />
+                </svg>
+              </div>
+              <div class="edu-level">Secondary (SSC)</div>
+              <div class="edu-degree">
+                Secondary School Certificate in Science
+              </div>
+              <div class="edu-school">
+                Hazi Pancham Ali High School, Patuakhali
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IELTS — scores already filled in -->
+        <div>
+          <div class="sub-heading"><span></span>IELTS</div>
+          <div class="ielts-overall">
+            <div class="ielts-band-big">
+              <div class="score">7.0</div>
+              <div class="label">Overall</div>
+            </div>
+            <div class="ielts-info">
+              <h3>IELTS — Academic</h3>
+              <p>International English Language Testing System</p>
+            </div>
+          </div>
+          <div class="ielts-scores">
+            <div class="ielts-card">
+              <div class="s-score">7.5</div>
+              <div class="s-label">Listening</div>
+            </div>
+            <div class="ielts-card">
+              <div class="s-score">7.0</div>
+              <div class="s-label">Reading</div>
+            </div>
+            <div class="ielts-card">
+              <div class="s-score">6.0</div>
+              <div class="s-label">Writing</div>
+            </div>
+            <div class="ielts-card">
+              <div class="s-score">7.0</div>
+              <div class="s-label">Speaking</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CORE COURSES — UPDATE: course names and grades
+         Keep total rows even (14, 16...) so both columns stay balanced.
+         To add a row: copy one .course-row block and update number, name, grade.
+    -->
+        <div>
+          <div class="sub-heading"><span></span>Core Courses</div>
+          <div class="courses-two-col">
+            <div class="course-row">
+              <span class="course-num">01</span>
+              <div class="course-dot-line">
+                <span class="course-name">Fundamental of Mathematics</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A+</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">02</span>
+              <div class="course-dot-line">
+                <span class="course-name">Discrete Mathematics</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A-</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">03</span>
+              <div class="course-dot-line">
+                <span class="course-name">Numerical Analysis</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A-</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">04</span>
+              <div class="course-dot-line">
+                <span class="course-name">Algorithms</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A+</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">05</span>
+              <div class="course-dot-line">
+                <span class="course-name"
+                  >Theory of Computing &amp; Automata</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A+</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">06</span>
+              <div class="course-dot-line">
+                <span class="course-name">Database Systems</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">B-</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">07</span>
+              <div class="course-dot-line">
+                <span class="course-name">Computer Networks</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">08</span>
+              <div class="course-dot-line">
+                <span class="course-name">Operating Systems</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">B+</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">09</span>
+              <div class="course-dot-line">
+                <span class="course-name">System Analysis and Design</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A+</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">10</span>
+              <div class="course-dot-line">
+                <span class="course-name">Artificial Intelligence</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">B+</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">11</span>
+              <div class="course-dot-line">
+                <span class="course-name">Software Engineering</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A+</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">12</span>
+              <div class="course-dot-line">
+                <span class="course-name">Pattern Recognition</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A-</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">13</span>
+              <div class="course-dot-line">
+                <span class="course-name"
+                  >Neural Network &amp; Fuzzy Systems</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A</span>
+            </div>
+            <div class="course-row">
+              <span class="course-num">14</span>
+              <div class="course-dot-line">
+                <span class="course-name">Data Mining</span
+                ><span class="dots"></span>
+              </div>
+              <span class="grade-badge">A+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PROJECTS ══
+     UPDATE: proj-tag, proj-name, proj-desc, and href for each card
+     Copy a .proj-card block to add more projects
+-->
+    <section id="projects">
+      <div class="section-heading">
+        <h2>Projects</h2>
+        <p>Things I've built &amp; researched</p>
+      </div>
+      <div class="projects-grid">
+        <div class="proj-card">
+          <div class="proj-tag">AI / ML</div>
+          <!-- UPDATE -->
+          <div class="proj-name">YouTube Video Summarizer</div>
+          <!-- UPDATE -->
+          <div class="proj-desc">
+            A web application that automatically generates concise summaries of
+            YouTube videos using Natural Language Processing. Users paste a
+            video URL and receive a structured text summary instantly.
+          </div>
+          <!-- UPDATE -->
+          <a
+            class="proj-link"
+            href="https://github.com/OhidaAkter/youtube-summarizer-agent"
+            target="_blank"
+            ><!-- UPDATE -->
+            <svg
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            View on GitHub →
+          </a>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-tag">AI / ML</div>
+          <div class="proj-name">Spam Email Detection System</div>
+          <div class="proj-desc">
+            A machine learning web app that detects spam and phishing emails
+            with 95% accuracy, built with Python, Scikit-learn and Streamlit.
+          </div>
+          <a
+            class="proj-link"
+            href="https://github.com/OhidaAkter/Spam-Email-Detection"
+            target="_blank"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            View on GitHub →
+          </a>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-tag">AI / ML</div>
+          <div class="proj-name">Neuro-Symbolic Math Solver</div>
+          <div class="proj-desc">
+            A web app that combines a neural network (99% accuracy) with a
+            symbolic AI engine to solve and explain math problems step by step —
+            built from scratch using Python.
+          </div>
+          <a
+            class="proj-link"
+            href="https://github.com/YOUR_USERNAME/YOUR_REPO"
+            target="_blank"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            View on GitHub →
+          </a>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-tag">Mobile App</div>
+          <div class="proj-name">PMy Health App</div>
+          <div class="proj-desc">
+            A mobile application to help users track health records, manage
+            doctor appointments, and receive medication reminders for better
+            healthcare management. Built with Java and Android Studio.
+          </div>
+          <!--
+          <a
+            class="proj-link"
+            href="https://github.com/YOUR_USERNAME/YOUR_REPO"
+            target="_blank"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            View on GitHub →
+          </a>
+          -->
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-tag">Web</div>
+          <div class="proj-name">Computer Learning Platform in Bengali</div>
+          <div class="proj-desc">
+            An educational web platform in Bengali language to teach computer
+            skills including programming, Microsoft Word, Excel, and other
+            essential software tools. Built with HTML, CSS, PHP, MySQL and
+            JavaScript.
+          </div>
+          <!--
+          <a
+            class="proj-link"
+            href="https://github.com/YOUR_USERNAME/YOUR_REPO"
+            target="_blank"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            View on GitHub →
+          </a>
+          -->
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-tag">Mobile App</div>
+          <div class="proj-name">Bill Manager — Personal Finance Tracker</div>
+          <div class="proj-desc">
+            A cross-platform mobile app to track, manage, and get reminded about
+            utility bills, mortgages, credit cards, and insurance payments with
+            real-time due date alerts.
+          </div>
+          <!--
+          <a
+            class="proj-link"
+            href="https://github.com/YOUR_USERNAME/YOUR_REPO"
+            target="_blank"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            View on GitHub →
+          </a>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ══
+     UPDATE: your email, LinkedIn URL, GitHub URL
+-->
+    <section id="contact">
+      <div class="section-heading">
+        <h2>Contact</h2>
+        <p>Have an opportunity or just want to say hello?</p>
+      </div>
+      <div class="contact-inner">
+        <p>
+          Feel free to reach out via email or connect with me on LinkedIn and
+          GitHub. I'm always open to new opportunities and collaborations.
+        </p>
+        <div class="contact-btns">
+          <a class="c-btn c-btn-primary" href="mailto:contact.ohida@gmail.com"
+            ><!-- UPDATE -->
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+              />
+            </svg>
+            Email Me
+          </a>
+          <a
+            class="c-btn c-btn-outline"
+            href="https://www.linkedin.com/in/ohidaakter24/"
+            target="_blank"
+            ><!-- UPDATE -->
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"
+              />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn
+          </a>
+          <a
+            class="c-btn c-btn-outline"
+            href="https://github.com/OhidaAkter"
+            target="_blank"
+            ><!-- UPDATE -->
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 Ohida Akter · Designed with care</footer>
+
+    <script>
+      const links = document.querySelectorAll(".nav-links a");
+      const sections = document.querySelectorAll("section");
+      window.addEventListener("scroll", () => {
+        let cur = "";
+        sections.forEach((s) => {
+          if (window.scrollY >= s.offsetTop - 80) cur = s.id;
+        });
+        links.forEach((l) => {
+          l.classList.toggle("active", l.getAttribute("href") === "#" + cur);
+        });
+      });
+    </script>
+  </body>
+</html>
